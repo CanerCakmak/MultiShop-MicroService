@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MultiShop.Order.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Domain.Entities
+namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetOrderDetailById
 {
-    public class OrderDetail
+    public class GetOrderDetailByIdQueryResponse
     {
         public int OrderDetailID { get; set; }
 
@@ -17,8 +18,6 @@ namespace MultiShop.Order.Domain.Entities
 
         public decimal ProductTotalPrice { get; set; }
         public int OrderingID { get; set; }
-
-        public Ordering Ordering { get; set; }
 
     }
 }
