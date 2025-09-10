@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Addresses.Queries.GetAdressById
+namespace MultiShop.Order.Application.Features.CQRS.Addresses.Commands.UpdateAddress
 {
-    public class GetAdressByIdQueryResponse
+    public class UpdateAddressCommandRequest
     {
         public int AddressID { get; set; }
-
         public string UserID { get; set; }
-
         public string District { get; set; }
         public string City { get; set; }
         public string Detail { get; set; }

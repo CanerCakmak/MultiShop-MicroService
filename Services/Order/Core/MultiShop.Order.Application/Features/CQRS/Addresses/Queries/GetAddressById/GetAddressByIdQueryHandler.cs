@@ -7,24 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Addresses.Queries.GetAdressById;
+namespace MultiShop.Order.Application.Features.CQRS.Addresses.Queries.GetAddressById;
 
-public class GetAdressByIdQueryHandler
+public class GetAddressByIdQueryHandler
 {
     private readonly IRepository<Address> _repository;
     private readonly IMapper _mapper;
 
-    public GetAdressByIdQueryHandler(IRepository<Address> repository, IMapper mapper)
+    public GetAddressByIdQueryHandler(IRepository<Address> repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
     }
 
-    public async Task<GetAdressByIdQueryResponse> Handle(GetAdressByIdQueryRequest request)
+    public async Task<GetAddressByIdQueryResponse> Handle(GetAddressByIdQueryRequest request)
     {
         Address address = await _repository.GetByIdAsync(request.ID);
 
-        return _mapper.Map<GetAdressByIdQueryResponse>(address);
+        return _mapper.Map<GetAddressByIdQueryResponse>(address);
     }
 
 }

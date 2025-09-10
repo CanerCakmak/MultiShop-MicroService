@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Addresses.Commands.CreateAddress
+namespace MultiShop.Order.Application.Features.CQRS.Addresses.Queries.GetAddressById
 {
-    public class CreateAdressCommandRequest
+    public class GetAddressByIdQueryResponse
     {
+        public int AddressID { get; set; }
+
         public string UserID { get; set; }
 
         public string District { get; set; }

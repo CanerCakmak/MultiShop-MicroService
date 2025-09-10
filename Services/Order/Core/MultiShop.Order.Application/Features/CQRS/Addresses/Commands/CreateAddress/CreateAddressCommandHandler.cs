@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.Addresses.Commands.CreateAddress
 {
-    public class CreateAdressCommandHandler
+    public class CreateAddressCommandHandler
     {
         private readonly IRepository<Address> _repository;
         private readonly IMapper _mapper;
 
-        public CreateAdressCommandHandler(IRepository<Address> repository, IMapper mapper)
+        public CreateAddressCommandHandler(IRepository<Address> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task Handle(CreateAdressCommandRequest request)
+        public async Task Handle(CreateAddressCommandRequest request)
         {
             Address value = _mapper.Map<Address>(request);
 

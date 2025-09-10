@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetAllOrderDetails
+namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetAllOrderDetails;
+
+public class GetAllOrderDetailsQueryRequest
 {
-    internal class GetAllOrderDetailsQueryRequest
-    {
-    }
 }

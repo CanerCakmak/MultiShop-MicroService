@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetOrderDetailById
 {
-    internal class GetOrderDetailByIdQueryRequest
+    public class GetOrderDetailByIdQueryRequest
     {
+        public int ID { get; set; }
+
+        public GetOrderDetailByIdQueryRequest(int id)
+        {
+            ID = id;
+        }
     }
 }

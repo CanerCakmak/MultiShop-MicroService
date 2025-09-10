@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Command.CreateOrderDetail
+namespace MultiShop.Order.Application.Features.CQRS.OrderDetails.Commands.UpdateOrderDetail
 {
-    public class CreateOrderDetailCommandRequest
+    public class UpdateOrderDetailCommandRequest
     {
+        public int OrderDetailID { get; set; }
 
         public string ProductID { get; set; }
         public string ProductName { get; set; }
