@@ -13,6 +13,7 @@ using MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetAllOrder
 using MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetOrderDetailById;
 using System.Reflection;
 
+
 namespace MultiShop.Order.Application
 {
     public static class Registration

@@ -26,8 +26,8 @@ public class UpdateAddressCommandHandler
 
         if (address != null)
         {
-            Address updatedAddress = _mapper.Map<Address>(request);
-            await _repository.UpdateAsync(updatedAddress);
+            _mapper.Map(request, address);
+            await _repository.UpdateAsync(address);
         }
     }
 }

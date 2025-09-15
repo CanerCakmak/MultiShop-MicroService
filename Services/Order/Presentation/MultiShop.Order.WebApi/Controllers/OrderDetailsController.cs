@@ -5,9 +5,11 @@ using MultiShop.Order.Application.Features.CQRS.OrderDetails.Commands.RemoveOrde
 using MultiShop.Order.Application.Features.CQRS.OrderDetails.Commands.UpdateOrderDetail;
 using MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetOrderDetailById;
 using MultiShop.Order.Application.Features.CQRS.OrderDetails.Queries.GetAllOrderDetails;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MultiShop.Order.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderDetailsController : ControllerBase

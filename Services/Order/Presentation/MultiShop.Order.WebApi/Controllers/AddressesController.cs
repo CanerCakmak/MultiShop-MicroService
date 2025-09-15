@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Order.Application.Features.CQRS.Addresses.Commands.CreateAddress;
 using MultiShop.Order.Application.Features.CQRS.Addresses.Commands.RemoveAddress;
@@ -8,6 +9,7 @@ using MultiShop.Order.Application.Features.CQRS.Addresses.Queries.GetAllAddresse
 
 namespace MultiShop.Order.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AddressesController : ControllerBase
