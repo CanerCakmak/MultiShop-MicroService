@@ -14,7 +14,6 @@ namespace MultiShop.Order.Persistence.Context
         {
             optionsBuilder.UseSqlServer("Server=localhost,1440; Database = MultiShopOrderDB; User ID=sa;Password=123456aA.; Trust Server Certificate = true;");
 
-            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Address> Addresses { get; set; }
