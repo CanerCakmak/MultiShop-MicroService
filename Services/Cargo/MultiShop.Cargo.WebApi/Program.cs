@@ -1,9 +1,25 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MultiShop.Cargo.BusinessLayer;
+using MultiShop.Cargo.DataAccessLayer;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServerURL"];
+        options.Audience = "ResourceCargo";
+        options.RequireHttpsMetadata = false;
+    });
+
 // Add services to the container.
+builder.Services.AddScopedServices();
+builder.Services.AddDataAccessLayerServices(builder.Configuration);
+
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,6 +34,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
