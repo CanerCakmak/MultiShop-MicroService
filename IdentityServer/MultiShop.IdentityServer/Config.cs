@@ -32,6 +32,14 @@ namespace MultiShop.IdentityServer
                 {
                     Scopes = { "Order.FullPermission", "Order.ReadPermission", "Order.WritePermission" }
                 },
+                new ApiResource("ResourceCargo")
+                {
+                    Scopes ={ "Cargo.FullPermission", "Cargo.ReadPermission", "Cargo.WritePermission" }
+                },
+                new ApiResource("ResourceBasket")
+                {
+                    Scopes ={ "Basket.FullPermission", "Basket.ReadPermission", "Basket.WritePermission" }
+                },
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -50,6 +58,14 @@ namespace MultiShop.IdentityServer
                 new ApiScope("Order.ReadPermission", "Read access to Order API"),
                 new ApiScope("Order.WritePermission", "Write access to Order API"),
 
+                new ApiScope("Cargo.FullPermission", "Full access to Cargo API"),
+                new ApiScope("Cargo.ReadPermission", "Read access to Cargo API"),
+                new ApiScope("Cargo.WritePermission", "Write access to Cargo API"),
+
+                new ApiScope("Basket.FullPermission", "Full access to Basket API"),
+                new ApiScope("Basket.ReadPermission", "Read access to Basket API"),
+                new ApiScope("Basket.WritePermission", "Write access to Basket API"),
+
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -61,16 +77,17 @@ namespace MultiShop.IdentityServer
                 ClientName = "MultiShop Visitor User",
                 ClientSecrets = { new Secret("multishopsecret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = { "Catalog.ReadPermission", "Discount.ReadPermission", "Order.ReadPermission", "Order.WritePermission" }
+                AllowedScopes = { "Catalog.ReadPermission", "Discount.ReadPermission", "Order.ReadPermission", "Order.WritePermission","Cargo.ReadPermission" }
                 },
+
             //manager
             new Client
             {
                 ClientId = "MultiShopManagerId",
                 ClientName = "MultiShop Manager User",
                 ClientSecrets = { new Secret("multishopsecret".Sha256()) },
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = { "Catalog.FullPermission","Catalog.WritePermission", "Catalog.ReadPermission", "Discount.FullPermission" }
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AllowedScopes = { "Catalog.FullPermission","Catalog.WritePermission", "Catalog.ReadPermission", "Discount.FullPermission", "Cargo.FullPermission" }
             },
 
             //admin
@@ -79,8 +96,8 @@ namespace MultiShop.IdentityServer
                 ClientId = "MultiShopAdminId",
                 ClientName = "MultiShop Admin User",
                 ClientSecrets = { new Secret("multishopsecret".Sha256()) },
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = { "Catalog.FullPermission", "Discount.FullPermission", "Order.FullPermission",
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AllowedScopes = { "Catalog.FullPermission", "Discount.FullPermission", "Order.FullPermission", "Cargo.FullPermission","Basket.FullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
@@ -89,51 +106,5 @@ namespace MultiShop.IdentityServer
                 AccessTokenLifetime = 600
             }
         };
-
-        //public static IEnumerable<IdentityResource> IdentityResources =>
-        //           new IdentityResource[]
-        //           {
-        //        new IdentityResources.OpenId(),
-        //        new IdentityResources.Profile(),
-        //           };
-
-        //public static IEnumerable<ApiScope> ApiScopes =>
-        //    new ApiScope[]
-        //    {
-        //        new ApiScope("scope1"),
-        //        new ApiScope("scope2"),
-        //    };
-
-        //public static IEnumerable<Client> Clients =>
-        //    new Client[]
-        //    {
-        //        // m2m client credentials flow client
-        //        new Client
-        //        {
-        //            ClientId = "m2m.client",
-        //            ClientName = "Client Credentials Client",
-
-        //            AllowedGrantTypes = GrantTypes.ClientCredentials,
-        //            ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
-
-        //            AllowedScopes = { "scope1" }
-        //        },
-
-        //        // interactive client using code flow + pkce
-        //        new Client
-        //        {
-        //            ClientId = "interactive",
-        //            ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
-
-        //            AllowedGrantTypes = GrantTypes.Code,
-
-        //            RedirectUris = { "https://localhost:44300/signin-oidc" },
-        //            FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-        //            PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
-
-        //            AllowOfflineAccess = true,
-        //            AllowedScopes = { "openid", "profile", "scope2" }
-        //        },
-        //    };
     }
 }
