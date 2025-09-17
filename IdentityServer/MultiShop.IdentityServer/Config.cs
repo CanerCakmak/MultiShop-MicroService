@@ -36,6 +36,10 @@ namespace MultiShop.IdentityServer
                 {
                     Scopes ={ "Cargo.FullPermission", "Cargo.ReadPermission", "Cargo.WritePermission" }
                 },
+                new ApiResource("ResourceBasket")
+                {
+                    Scopes ={ "Basket.FullPermission", "Basket.ReadPermission", "Basket.WritePermission" }
+                },
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -58,6 +62,10 @@ namespace MultiShop.IdentityServer
                 new ApiScope("Cargo.ReadPermission", "Read access to Cargo API"),
                 new ApiScope("Cargo.WritePermission", "Write access to Cargo API"),
 
+                new ApiScope("Basket.FullPermission", "Full access to Basket API"),
+                new ApiScope("Basket.ReadPermission", "Read access to Basket API"),
+                new ApiScope("Basket.WritePermission", "Write access to Basket API"),
+
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -78,7 +86,7 @@ namespace MultiShop.IdentityServer
                 ClientId = "MultiShopManagerId",
                 ClientName = "MultiShop Manager User",
                 ClientSecrets = { new Secret("multishopsecret".Sha256()) },
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 AllowedScopes = { "Catalog.FullPermission","Catalog.WritePermission", "Catalog.ReadPermission", "Discount.FullPermission", "Cargo.FullPermission" }
             },
 
@@ -88,8 +96,8 @@ namespace MultiShop.IdentityServer
                 ClientId = "MultiShopAdminId",
                 ClientName = "MultiShop Admin User",
                 ClientSecrets = { new Secret("multishopsecret".Sha256()) },
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = { "Catalog.FullPermission", "Discount.FullPermission", "Order.FullPermission", "Cargo.FullPermission",
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AllowedScopes = { "Catalog.FullPermission", "Discount.FullPermission", "Order.FullPermission", "Cargo.FullPermission","Basket.FullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,

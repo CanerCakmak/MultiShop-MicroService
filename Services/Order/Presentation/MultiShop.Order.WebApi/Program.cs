@@ -10,7 +10,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration["IdentityServerURL"];
-        options.Audience = "ResourceCargo";
+        options.Audience = "ResourceOrder";
         options.RequireHttpsMetadata = false;
     });
 
