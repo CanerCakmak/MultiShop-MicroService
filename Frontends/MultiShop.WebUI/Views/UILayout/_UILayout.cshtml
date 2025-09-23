@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Component.InvokeAsync("_HeadUILayoutViewComponentPartial")
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    @await Component.InvokeAsync("_TopbarUILayoutViewComponentPartial")
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    @await Component.InvokeAsync("_NavbarUILayoutViewComponentPartial")
+    <!-- Navbar End -->
+    @RenderBody()
+
+    <!-- Footer Start -->
+    @await Component.InvokeAsync("_FooterUILayoutViewComponentPartial")
+    <!-- Footer End -->
+    <!-- JavaScript Libraries -->
+    @await Component.InvokeAsync("_ScriptUILayoutViewComponentPartial")
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

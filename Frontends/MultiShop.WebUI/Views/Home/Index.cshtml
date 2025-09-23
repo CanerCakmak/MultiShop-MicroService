@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Carousel Start -->
+@await Component.InvokeAsync("_CarouselUILayoutViewComponentPartial")
+<!-- Carousel End -->
+<!-- Featured Start -->
+@await Component.InvokeAsync("_FeatureUILayoutViewComponentPartial")
+<!-- Featured End -->
+<!-- Categories Start -->
+@await Component.InvokeAsync("_CategoriesUILayoutViewComponentPartial")
+<!-- Categories End -->
+<!-- Products Start -->
+@await Component.InvokeAsync("_FeatureProductsUILayoutViewComponentPartial")
+<!-- Products End -->
+<!-- Offer Start -->
+@await Component.InvokeAsync("_OfferDiscountUILayoutViewComponentPartial")
+<!-- Offer End -->
+<!-- Vendor Start -->
+@await Component.InvokeAsync("_VendorUILayoutViewComponentPartial")
+<!-- Vendor End -->
+
