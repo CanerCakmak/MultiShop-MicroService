@@ -20,8 +20,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Önce alan (area) bazlý yönlendirmeyi tanýmlayýn (daha spesifik olduðu için)
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+// Sonra varsayýlan (default) yönlendirmeyi tanýmlayýn
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();

@@ -11,15 +11,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\" />
-    <Folder Include="Areas\User\Controllers\" />
-    <Folder Include="Areas\User\Data\" />
-    <Folder Include="Areas\User\Models\" />
-    <Folder Include="Areas\User\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\OvioAdmin\help-documentation\assets\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\help-documentation\assets\blueprint-css\plugins\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\app\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\charts\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\component\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\dist\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\forms\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\maps\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\pages\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\OvioAdmin\html\tables\et-line-font\fonts\.DS_Store" />
   </ItemGroup>
 
 </Project>
