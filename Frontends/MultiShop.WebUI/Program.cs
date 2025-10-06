@@ -3,6 +3,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+#region API Clients
+builder.Services.AddHttpClient("CatalogAPI", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7070/api/");
+});
+
+builder.Services.AddHttpClient("OrderAPI", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7070/api/");
+});
+#endregion
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

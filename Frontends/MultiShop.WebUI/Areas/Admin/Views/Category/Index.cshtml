@@ -1,8 +1,82 @@
-﻿
+﻿@model List<ResponseCategoryDTO>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+
+    int counter = 1;
 }
 
-<h1>Index</h1>
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Kategoriler</h4>
+                <p>(Count)</p>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>İsim</th>
+                                <th>Aksiyon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Any())
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@counter</th>
+                                        <th>@item.CategoryID</th>
+                                        <td>@item.Name</td>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryID" class="btn btn-primary">Düzenle</a>
+                                            <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryID" class="btn btn-danger">Sil</a>
+                                        </td>
+                                    </tr>
+                                    counter++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <th>IDler</th>
+                                    <td>İsimler</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="1" class="btn btn-primary">Düzenle</a>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="1" class="btn btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <th>IDler</th>
+                                    <td>İsimler</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="1" class="btn btn-primary">Düzenle</a>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="1" class="btn btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <th>IDler</th>
+                                    <td>İsimler</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="1" class="btn btn-primary">Düzenle</a>
+                                        <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="1" class="btn btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-primary">(+) Yeni Kategori Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
