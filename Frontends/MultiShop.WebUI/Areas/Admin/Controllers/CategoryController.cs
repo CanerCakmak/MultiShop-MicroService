@@ -98,24 +98,20 @@ public class CategoryController : Controller
             {
                 model = await response.Content.ReadFromJsonAsync<UpdateCategoryDTO>();
 
-                // Veri null gelirse veya deserialization hatası olursa
                 if (model == null)
                 {
-                    // Loglama yapın: "Veri 200 OK döndü ancak null/boştu."
-                    return NotFound(); // Veya hata sayfasına yönlendirin
+                    return NotFound();
                 }
 
                 return View(model);
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                // 4. API'den 404 Not Found Hatası Geldi
-                return NotFound(); // Kullanıcıya bu ID'de öğe olmadığını bildirin.
+                return NotFound();
             }
         }
         catch (Exception ex)
         {
-            // Loglama yapın: ex.Message
         }
 
         //return RedirectToAction(nameof(Index));
@@ -127,7 +123,6 @@ public class CategoryController : Controller
     public async Task<IActionResult> Edit(UpdateCategoryDTO model)
     {
         HttpClient client = _httpClientFactory.CreateClient("CatalogAPI");
-
         HttpResponseMessage? response = null;
 
         try
