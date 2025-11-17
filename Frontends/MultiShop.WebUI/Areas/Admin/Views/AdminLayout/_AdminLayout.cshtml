@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Component.InvokeAsync("_AdminLayoutHeadViewComponentPartial")
+</head>
+
+<body class="sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header dark-bg">
+
+            <!-- Logo -->
+            <a href="index.html" class="logo dark-bg">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="~/OvioAdmin/html/dist/img/logo.png" alt="Ovio"></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="~/OvioAdmin/html/dist/img/logo-lg.png" alt="Ovio"></span>
+            </a>
+
+            <!-- Header Navbar -->
+            @await Component.InvokeAsync("_AdminLayoutNavbarViewComponentPartial")
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        @await Component.InvokeAsync("_AdminLayoutSidebarViewComponentPartial")
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @await Component.InvokeAsync("_AdminLayoutBreadcrumbViewComponentPartial")
+
+            <!-- Main content -->
+            @RenderBody()
+            <!-- content -->
+        </div>
+        <!-- content-wrapper -->
+        <!-- Main Footer -->
+        @await Component.InvokeAsync("_AdminLayoutFooterViewComponentPartial")
+    </div>
+    <!-- wrapper -->
+    <!-- jQuery -->
+    <script src="~/OvioAdmin/html/dist/js/jquery.min.js"></script>
+    <script src="~/OvioAdmin/html/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/OvioAdmin/html/dist/js/ovio.js"></script>
+
+    <!-- charts -->
+    <script src="~/OvioAdmin/html/plugins/charts/code/modules/exporting.js"></script>
+    <script src="~/OvioAdmin/html/plugins/charts/chart-functions.js"></script>
+</body>
+</html>

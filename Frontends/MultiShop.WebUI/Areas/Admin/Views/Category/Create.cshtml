@@ -1,0 +1,24 @@
+﻿@model CreateCategoryDTO
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Kategori Bilgileri</h4>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Kategori İsmi</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kategori İsmi" asp-for="Name">
+                    </div>
+                    <button type="submit" class="btn btn-default">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

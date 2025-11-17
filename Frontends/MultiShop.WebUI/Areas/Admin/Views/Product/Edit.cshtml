@@ -1,0 +1,41 @@
+﻿@model UpdateProductDTO
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Ürün Bilgileri</h4>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ürün İsmi</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" placeholder="Ürün İsmi" asp-for="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Fiyat</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" placeholder="Fiyat" asp-for="Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Kapak Fotoğrafı</label>
+                        <input type="file" id="exampleInputFile" asp-for="CoverImagePath">
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea class="form-control" id="basicTextarea" autocomplete="off" rows="3" asp-for="Description"></textarea>
+                    </div>
+                    @Html.DropDownListFor(
+                    m => m.CategoryID,
+                                        (List<SelectListItem>)ViewBag.Categories,
+                                        "Kategori Seçin",
+                                        new { @class = "form-control" }
+                                        )
+                    <button type="submit" class="btn btn-default">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
